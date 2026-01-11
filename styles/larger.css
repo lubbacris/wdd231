@@ -1,0 +1,206 @@
+/* Large Screen Styles */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    /* Header */
+    .header-content {
+        padding: 0;
+    }
+
+    /* Hide hamburger on large screens */
+    .hamburger {
+        display: none;
+    }
+
+    /* Navigation */
+    .main-nav {
+        display: block;
+        padding: 0;
+        border-top: none;
+        background-color: transparent;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0;
+    }
+
+    /* Main content */
+    main {
+        padding: 3rem 0;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    /* Profile section */
+    .profile-sections {
+        flex-direction: row;
+        gap: 2rem;
+        align-items: stretch;
+    }
+
+    .about-section,
+    .photo-section {
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+    }
+
+    .about-section .section-header,
+    .photo-section .section-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .student-photo-container {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .student-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* Filter buttons */
+    .filter-buttons {
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .filter-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: auto;
+    }
+
+    /* Course cards grid for larger screens */
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .course-card {
+        padding: 2rem;
+    }
+
+    /* Courses summary */
+    .credits-display {
+        justify-content: center;
+    }
+
+    /* Footer large screens */
+    .footer-content {
+        gap: 2rem;
+    }
+
+    .social-icons {
+        gap: 2rem;
+    }
+
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+    }
+
+    .social-icons i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+    .container {
+        padding: 0;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    .profile-sections {
+        gap: 3rem;
+    }
+
+    .student-photo {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .footer-content {
+        max-width: 700px;
+    }
+}
+
+/* Hamburger menu animation */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Course card hover effects */
+.course-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Active state for filter buttons */
+.filter-btn.active {
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Social icons hover effect */
+.social-icons a:hover {
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Print styles */
+@media print {
+    .hamburger,
+    .filter-buttons,
+    .social-icons {
+        display: none !important;
+    }
+    
+    .main-nav {
+        display: none !important;
+    }
+    
+    .course-card {
+        break-inside: avoid;
+    }
+    
+    .profile-sections {
+        flex-direction: column;
+    }
+}
