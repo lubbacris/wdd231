@@ -1,0 +1,130 @@
+/* Large Screen Styles (768px and up) */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    /* Header adjustments */
+    .header-content {
+        padding: 1rem 0;
+    }
+
+    .social-header {
+        display: flex;
+    }
+
+    /* Hide hamburger on large screens */
+    .hamburger {
+        display: none;
+    }
+
+    /* Show navigation horizontally */
+    .main-nav {
+        display: block;
+        padding: 0;
+        background-color: var(--primary-color);
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .main-nav a {
+        padding: 1rem 2rem;
+        border-radius: 0;
+    }
+
+    /* Directory Stats */
+    .directory-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Member Grid */
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Membership Info Levels */
+    .levels-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 3rem 0;
+    }
+}
+
+/* Extra large screens (1024px and up) */
+@media (min-width: 1024px) {
+    .member-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .view-toggle {
+        justify-content: flex-end;
+        margin-top: -3rem;
+    }
+}
+
+/* Animation for hamburger menu */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Member card hover effects */
+.member-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Level card hover effects */
+.level-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.level-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Print styles */
+@media print {
+    .hamburger,
+    .view-toggle,
+    .member-actions,
+    .social-header,
+    .footer-bottom {
+        display: none !important;
+    }
+    
+    .main-nav {
+        display: none !important;
+    }
+    
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .member-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}

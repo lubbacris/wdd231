@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Tech Solutions Inc.",
+        "address": "123 Tech Street, Nelspruit, South Africa",
+        "phone": "+27 12 345 6789",
+        "website": "https://techsolutions.co.za",
+        "image": "tech-solutions.jpg",
+        "membership": "gold",
+        "description": "Leading IT services provider specializing in cloud solutions and cybersecurity.",
+        "category": "Technology",
+        "employees": "50-100",
+        "founded": "2010"
+    },
+    {
+        "name": "Green Valley Restaurant",
+        "address": "456 Food Ave, Mpumalanga, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://greenvalley.co.za",
+        "image": "green-valley.jpg",
+        "membership": "silver",
+        "description": "Farm-to-table restaurant offering organic and locally sourced cuisine.",
+        "category": "Food & Beverage",
+        "employees": "20-50",
+        "founded": "2015"
+    },
+    {
+        "name": "Summit Construction",
+        "address": "789 Builders Lane, Richards Bay, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://summitconstruction.co.za",
+        "image": "summit-construction.jpg",
+        "membership": "gold",
+        "description": "Full-service construction company with 25 years of experience.",
+        "category": "Construction",
+        "employees": "100-200",
+        "founded": "1998"
+    },
+    {
+        "name": "Bloom Florist",
+        "address": "321 Flower Road, Cape Town, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://bloomflorist.co.za",
+        "image": "bloom-florist.jpg",
+        "membership": "bronze",
+        "description": "Family-owned florist shop providing beautiful arrangements for all occasions.",
+        "category": "Retail",
+        "employees": "5-10",
+        "founded": "2020"
+    },
+    {
+        "name": "Pinnacle Law Firm",
+        "address": "654 Justice Blvd, Durban, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://pinnaclelaw.co.za",
+        "image": "pinnacle-law.jpg",
+        "membership": "gold",
+        "description": "Experienced legal team specializing in business and corporate law.",
+        "category": "Professional Services",
+        "employees": "30-60",
+        "founded": "2005"
+    },
+    {
+        "name": "Wellness Medical Center",
+        "address": "987 Health Way, Pretoria, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://wellnessmedical.co.za",
+        "image": "wellness-medical.jpg",
+        "membership": "silver",
+        "description": "Comprehensive healthcare services for the entire family.",
+        "category": "Healthcare",
+        "employees": "50-100",
+        "founded": "2012"
+    },
+    {
+        "name": "Creative Marketing Agency",
+        "address": "159 Marketing Drive, Stellenbosch, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://creativemarketing.co.za",
+        "image": "creative-marketing.jpg",
+        "membership": "bronze",
+        "description": "Digital marketing experts helping businesses grow their online presence.",
+        "category": "Marketing",
+        "employees": "10-25",
+        "founded": "2018"
+    },
+    {
+        "name": "Heritage Bank",
+        "address": "753 Finance Street, Cape Town, South Africa",
+        "phone": "27 12 345 6789",
+        "website": "https://heritagebank.co.za",
+        "image": "heritage-bank.jpg",
+        "membership": "gold",
+        "description": "Local community bank serving residents and businesses for over 40 years.",
+        "category": "Finance",
+        "employees": "100-250",
+        "founded": "1980"
+    }
+]

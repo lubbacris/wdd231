@@ -1,0 +1,84 @@
+{
+  "businesses": [
+    {
+      "id": 1,
+      "name": "Standard Bank Group",
+      "category": "finance",
+      "description": "Africa's leading financial services organization offering banking, investment, and insurance services.",
+      "email": "investor.relations@standardbank.co.za",
+      "phone": "+27 11 636 9111",
+      "website": "standardbank.co.za",
+      "icon": "🏦"
+    },
+    {
+      "id": 2,
+      "name": "Shoprite Holdings",
+      "category": "retail",
+      "description": "Africa's largest food retailer operating across 14 African countries.",
+      "email": "info@shoprite.co.za",
+      "phone": "+27 21 980 4000",
+      "website": "shoprite.co.za",
+      "icon": "🛒"
+    },
+    {
+      "id": 3,
+      "name": "Vodacom",
+      "category": "tech",
+      "description": "Leading African communications company providing voice, messaging, data and converged services.",
+      "email": "info@vodacom.co.za",
+      "phone": "+27 11 653 5000",
+      "website": "vodacom.co.za",
+      "icon": "📡"
+    },
+    {
+      "id": 4,
+      "name": "Discovery Limited",
+      "category": "health",
+      "description": "Innovative financial services organization that incentivizes people to be healthier.",
+      "email": "info@discovery.co.za",
+      "phone": "+27 11 529 2888",
+      "website": "discovery.co.za",
+      "icon": "💊"
+    },
+    {
+      "id": 5,
+      "name": "MTN Group",
+      "category": "tech",
+      "description": "Emerging market mobile operator connecting people across Africa and the Middle East.",
+      "email": "info@mtn.com",
+      "phone": "+27 11 912 3000",
+      "website": "mtn.com",
+      "icon": "📱"
+    },
+    {
+      "id": 6,
+      "name": "Bidvest Group",
+      "category": "services",
+      "description": "Diversified services, trading and distribution company operating globally.",
+      "email": "info@bidvest.co.za",
+      "phone": "+27 11 222 9111",
+      "website": "bidvest.co.za",
+      "icon": "🏢"
+    },
+    {
+      "id": 7,
+      "name": "Naspers",
+      "category": "tech",
+      "description": "Global internet and entertainment group with investments in technology companies.",
+      "email": "investors@naspers.com",
+      "phone": "+27 21 406 2121",
+      "website": "naspers.com",
+      "icon": "💻"
+    },
+    {
+      "id": 8,
+      "name": "Sanlam",
+      "category": "finance",
+      "description": "Pan-African financial services group with operations across 33 countries.",
+      "email": "info@sanlam.co.za",
+      "phone": "+27 21 947 9111",
+      "website": "sanlam.co.za",
+      "icon": "📊"
+    }
+  ]
+}
