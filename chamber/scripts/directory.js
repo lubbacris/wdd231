@@ -1,8 +1,8 @@
-// Directory page specific functionality
+// Directory page functionality
 
 async function loadMembers() {
     try {
-        // Fetch from JSON file - Ensure 'data/members.json' is the correct path
+        // Fetching from JSON file
         const response = await fetch('data/members.json');
         
         if (!response.ok) {
@@ -15,7 +15,7 @@ async function loadMembers() {
         updateStats(members);
     } catch (error) {
         console.error('Error loading members:', error);
-        // Display user-friendly error message in the grid
+        // Displaying user-friendly error message in the grid
         document.getElementById('member-grid').innerHTML = 
             '<p class="error-message">Unable to load directory data. Please try again later.</p>';
     }
@@ -78,12 +78,11 @@ function createListItem(member) {
     const listItem = document.createElement('div');
     listItem.className = 'list-item';
     
-    // Determine badge class
+    // Determining badge class
     let badgeClass = 'badge-bronze';
     if (member.membership === 'silver') badgeClass = 'badge-silver';
     if (member.membership === 'gold') badgeClass = 'badge-gold';
     
-    // NO IMAGES in list view as requested
     listItem.innerHTML = `
         <div class="list-info">
             <h3>${member.name}</h3>
@@ -121,7 +120,6 @@ function initViewToggle() {
         gridViewBtn.classList.add('active');
         listViewBtn.classList.remove('active');
         
-        // Use classes instead of inline styles
         memberGrid.classList.remove('hidden');
         memberList.classList.add('hidden');
     });
@@ -130,13 +128,12 @@ function initViewToggle() {
         listViewBtn.classList.add('active');
         gridViewBtn.classList.remove('active');
         
-        // Use classes instead of inline styles
         memberGrid.classList.add('hidden');
         memberList.classList.remove('hidden');
     });
 }
 
-// Initialize directory page
+// Initializing directory page
 document.addEventListener('DOMContentLoaded', () => {
     loadMembers();
     initViewToggle();

@@ -1,10 +1,10 @@
-/* Large Screen Styles (768px and up) */
+/* Large Screen Styles */
 @media (min-width: 768px) {
     .container {
         padding: 0 2rem;
     }
 
-    /* Header adjustments */
+    /* Header */
     .header-content {
         padding: 1rem 0;
     }
@@ -13,12 +13,12 @@
         display: flex;
     }
 
-    /* Hide hamburger on large screens */
+    /* Hiding hamburger on large screens */
     .hamburger {
         display: none;
     }
 
-    /* Show navigation horizontally */
+    /* Showing navigation horizontally */
     .main-nav {
         display: block;
         padding: 0;
@@ -36,7 +36,7 @@
         border-radius: 0;
     }
 
-    /* Directory Stats */
+    /* Directory Statistics */
     .directory-stats {
         grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
@@ -59,7 +59,7 @@
     }
 }
 
-/* Extra large screens (1024px and up) */
+/* Extra large screens */
 @media (min-width: 1024px) {
     .member-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -84,7 +84,7 @@
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Member card hover effects */
+/* Member card hover effect */
 .member-card {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,7 +95,7 @@
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Level card hover effects */
+/* Level card hover effect */
 .level-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -126,5 +126,36 @@
         break-inside: avoid;
         box-shadow: none !important;
         border: 1px solid #ddd !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .home-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .spotlights-section {
+        grid-column: 1 / -1;
+    }
+
+    .spotlight-grid {
+        flex-direction: row; 
+        justify-content: center;
+    }
+    
+    .spotlight-card {
+        flex: 1;
+        max-width: 350px;
+    }
+
+    .hero {
+        height: 400px;
+    }
+    
+    .hero-overlay h2 {
+        font-size: 3rem;
     }
 }
