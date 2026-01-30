@@ -1,83 +1,23 @@
 // Directory page specific functionality
 
-// Sample member data (replace with your actual JSON file)
-const members = [
-    {
-        name: "Tech Solutions Inc.",
-        address: "123 Tech Street, Sandton, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://techsolutions.co.za",
-        image: "tech-solutions.jpg",
-        membership: "gold",
-        description: "Leading IT services provider specializing in cloud solutions and cybersecurity."
-    },
-    {
-        name: "Green Valley Restaurant",
-        address: "456 Food Ave, Stellenbosch, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://greenvalley.co.za",
-        image: "green-valley.jpg",
-        membership: "silver",
-        description: "Farm-to-table restaurant offering organic and locally sourced cuisine."
-    },
-    {
-        name: "Summit Construction",
-        address: "789 Builders Lane, Cape Town, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://summitconstruction.co.za",
-        image: "summit-construction.jpg",
-        membership: "gold",
-        description: "Full-service construction company with 25 years of experience."
-    },
-    {
-        name: "Bloom Florist",
-        address: "321 Flower Road, Pretoria, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://bloomflorist.co.za",
-        image: "bloom-florist.jpg",
-        membership: "bronze",
-        description: "Family-owned florist shop providing beautiful arrangements for all occasions."
-    },
-    {
-        name: "Pinnacle Law Firm",
-        address: "654 Justice Blvd, Johannesburg, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://pinnaclelaw.co.za",
-        image: "pinnacle-law.jpg",
-        membership: "gold",
-        description: "Experienced legal team specializing in business and corporate law."
-    },
-    {
-        name: "Wellness Medical Center",
-        address: "987 Health Way, Pretoria, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://wellnessmedical.co.za",
-        image: "wellness-medical.jpg",
-        membership: "silver",
-        description: "Comprehensive healthcare services for the entire family."
-    },
-    {
-        name: "Creative Marketing Agency",
-        address: "159 Marketing Drive, Stellenbosch, South Africa",
-        phone: "+27 12 345 6789",
-        website: "https://creativemarketing.co.za",
-        image: "creative-marketing.jpg",
-        membership: "bronze",
-        description: "Digital marketing experts helping businesses grow their online presence."
-    }
-];
-
 async function loadMembers() {
     try {
-        // If you have a JSON file, use this:
-        // const response = await fetch('data/members.json');
-        // const members = await response.json();
+        // Fetch from JSON file - Ensure 'data/members.json' is the correct path
+        const response = await fetch('data/members.json');
+        
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        
+        const members = await response.json();
         
         displayMembers(members);
         updateStats(members);
     } catch (error) {
         console.error('Error loading members:', error);
-        displayMembers(members); // Fallback to sample data
+        // Display user-friendly error message in the grid
+        document.getElementById('member-grid').innerHTML = 
+            '<p class="error-message">Unable to load directory data. Please try again later.</p>';
     }
 }
 
@@ -111,21 +51,21 @@ function createMemberCard(member) {
     
     card.innerHTML = `
         <div class="member-header">
-            <img src="images/${member.image}" alt="${member.name}" class="member-logo">
+            <img src="images/${member.image}" alt="${member.name} Logo" class="member-logo" loading="lazy">
             <h3 class="member-name">${member.name}</h3>
             <span class="membership-badge ${badgeClass}">${member.membership.charAt(0).toUpperCase() + member.membership.slice(1)} Member</span>
         </div>
         <div class="member-details">
             <p><i class="fas fa-map-marker-alt"></i> ${member.address}</p>
             <p><i class="fas fa-phone"></i> ${member.phone}</p>
-            <p><i class="fas fa-globe"></i> ${member.website}</p>
+            <p><i class="fas fa-globe"></i> <a href="${member.website}" target="_blank">${member.website}</a></p>
             <p><i class="fas fa-info-circle"></i> ${member.description}</p>
         </div>
         <div class="member-actions">
-            <a href="${member.website}" target="_blank" class="btn btn-primary">
+            <a href="${member.website}" target="_blank" class="btn btn-primary" aria-label="Visit ${member.name} website">
                 <i class="fas fa-external-link-alt"></i> Visit Website
             </a>
-            <a href="tel:${member.phone}" class="btn btn-outline">
+            <a href="tel:${member.phone.replace(/\s+/g, '')}" class="btn btn-outline" aria-label="Call ${member.name}">
                 <i class="fas fa-phone"></i> Call Now
             </a>
         </div>
@@ -143,19 +83,15 @@ function createListItem(member) {
     if (member.membership === 'silver') badgeClass = 'badge-silver';
     if (member.membership === 'gold') badgeClass = 'badge-gold';
     
+    // NO IMAGES in list view as requested
     listItem.innerHTML = `
-        <div class="list-logo">
-            <img src="images/${member.image}" alt="${member.name}" width="60" height="60">
-        </div>
         <div class="list-info">
             <h3>${member.name}</h3>
             <p><i class="fas fa-map-marker-alt"></i> ${member.address}</p>
             <p><i class="fas fa-phone"></i> ${member.phone}</p>
             <span class="membership-badge ${badgeClass}">${member.membership.toUpperCase()}</span>
-        </div>
-        <div class="list-actions">
-            <a href="${member.website}" target="_blank" class="btn btn-primary">
-                <i class="fas fa-external-link-alt"></i> Website
+            <a href="${member.website}" target="_blank" class="list-website-link">
+                ${member.website}
             </a>
         </div>
     `;
@@ -184,15 +120,19 @@ function initViewToggle() {
     gridViewBtn.addEventListener('click', () => {
         gridViewBtn.classList.add('active');
         listViewBtn.classList.remove('active');
-        memberGrid.style.display = 'grid';
-        memberList.style.display = 'none';
+        
+        // Use classes instead of inline styles
+        memberGrid.classList.remove('hidden');
+        memberList.classList.add('hidden');
     });
     
     listViewBtn.addEventListener('click', () => {
         listViewBtn.classList.add('active');
         gridViewBtn.classList.remove('active');
-        memberGrid.style.display = 'none';
-        memberList.style.display = 'block';
+        
+        // Use classes instead of inline styles
+        memberGrid.classList.add('hidden');
+        memberList.classList.remove('hidden');
     });
 }
 

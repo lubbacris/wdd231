@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Resetting and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,13 +12,15 @@
     --light-color: #f7fafc;
     --dark-color: #2d3748;
     --text-color: #2d3748;
-    --text-light: #718096;
+    --text-light: #000000;
     --border-color: #e2e8f0;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --radius: 8px;
-    --gold-color: #d69e2e;
-    --silver-color: #a0aec0;
-    --bronze-color: #c05621;
+    
+    /* Dark colors to meet WCAG AA contrast standards on light backgrounds */
+    --gold-color: #000000; 
+    --silver-color: #000000; 
+    --bronze-color: #000000; 
 }
 
 body {
@@ -33,6 +35,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+/* Helper for toggling views (Replaces inline styles) */
+.hidden {
+    display: none !important;
 }
 
 /* Header Styles */
@@ -275,24 +282,24 @@ main {
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
 .badge-bronze {
-    background-color: rgba(192, 86, 33, 0.1);
+    background-color: #fcece6; 
     color: var(--bronze-color);
     border: 1px solid var(--bronze-color);
 }
 
 .badge-silver {
-    background-color: rgba(160, 174, 192, 0.1);
+    background-color: #edf2f7;
     color: var(--silver-color);
     border: 1px solid var(--silver-color);
 }
 
 .badge-gold {
-    background-color: rgba(214, 158, 46, 0.1);
+    background-color: #fffaf0;
     color: var(--gold-color);
     border: 1px solid var(--gold-color);
 }
@@ -311,6 +318,15 @@ main {
 .member-details i {
     color: var(--primary-color);
     width: 20px;
+}
+
+/* Accessible links inside details */
+.member-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.member-details a:hover {
+    text-decoration: underline;
 }
 
 .member-actions {
@@ -354,32 +370,24 @@ main {
 
 /* Member List View */
 .member-list {
-    display: none;
     margin-bottom: 3rem;
 }
 
 .list-item {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 1rem;
     padding: 1rem;
     background-color: white;
     border-bottom: 1px solid var(--border-color);
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.list-item:hover {
-    background-color: var(--light-color);
-}
-
-.list-logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+.list-item:nth-child(even) {
+    background-color: #f8fafc;
 }
 
 .list-info h3 {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.25rem 0;
     color: var(--primary-color);
 }
 
@@ -389,8 +397,15 @@ main {
     font-size: 0.875rem;
 }
 
-.list-actions {
-    text-align: right;
+.list-website-link {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+.list-website-link:hover {
+    text-decoration: underline;
 }
 
 /* Membership Info */
@@ -496,7 +511,7 @@ footer {
 }
 
 .address {
-    color: #cbd5e0;
+    color: #e2e8f0;
     line-height: 1.6;
 }
 
@@ -505,7 +520,7 @@ footer {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
-    color: #cbd5e0;
+    color: #e2e8f0;
 }
 
 .footer-section ul {
@@ -524,23 +539,24 @@ footer {
 
 .footer-section a:hover {
     color: white;
+    text-decoration: underline;
 }
 
 .footer-bottom {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 1rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .copyright p {
-    color: #a0aec0;
+    color: #cbd5e0;
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
 }
 
 .last-modified p {
-    color: #a0aec0;
+    color: #cbd5e0;
     font-size: 0.75rem;
     margin: 0;
 }
@@ -552,12 +568,6 @@ footer {
     }
     
     .list-item {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 0.5rem;
-    }
-    
-    .list-actions {
-        text-align: center;
+        text-align: left;
     }
 }
