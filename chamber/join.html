@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Johannesburg Chamber of Commerce - Membership Application">
+    <meta name="author" content="Lewis Karume">
+    <title>Join - Johannesburg Chamber of Commerce</title>
+    
+    <meta property="og:title" content="Join the Johannesburg Chamber of Commerce">
+    <meta property="og:description" content="Become a member today to grow your business network.">
+    <meta property="og:image" content="https://lubbacris.github.io/wdd231/chamber/images/og-image.jpg">
+    <meta property="og:url" content="https://lubbacris.github.io/wdd231/chamber/join.html">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="images/favicon.ico">
+    
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css" media="(min-width: 768px)">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/chamber-logo.png" alt="Chamber of Commerce Logo" width="50" height="50">
+                        <div class="site-title">
+                            <h1>Johannesburg</h1>
+                            <p>Chamber of Commerce</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="header-right">
+                    <div class="social-header">
+                        <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html" class="active">Join</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="date-banner">
+                <span id="current-date"></span>
+            </div>
+        </header>
+
+        <main class="join-page">
+            <h2 class="page-title">Membership Application</h2>
+            
+            <div class="join-content-grid">
+                <section class="form-section">
+                    <form method="get" action="thankyou.html" class="join-form">
+                        <h3>Applicant Information</h3>
+                        
+                        <label>
+                            First Name
+                            <input type="text" name="first_name" required autocomplete="given-name" title="Enter your first name">
+                        </label>
+                        
+                        <label>
+                            Last Name
+                            <input type="text" name="last_name" required autocomplete="family-name" title="Enter your last name">
+                        </label>
+                        
+                        <label>
+                            Title / Position
+                            <input type="text" name="title" autocomplete="organization-title" pattern="[A-Za-z\s-]{7,}" title="Must be at least 7 characters, alpha only, hyphens allowed">
+                        </label>
+                        
+                        <label>
+                            Email Address
+                            <input type="email" name="email" required autocomplete="email" placeholder="name@example.com" title="Enter your email address">
+                        </label>
+                        
+                        <label>
+                            Mobile Number
+                            <input type="tel" name="phone" required autocomplete="tel" title="Enter your mobile number">
+                        </label>
+                        
+                        <label>
+                            Organization Name
+                            <input type="text" name="organization" required autocomplete="organization" title="Enter your business or organization name">
+                        </label>
+                        
+                        <h3>Membership Level</h3>
+                        <div class="membership-radios">
+                            <label class="radio-label">
+                                <input type="radio" name="membership_level" value="np_membership" required>
+                                Non-Profit Membership (Free)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="membership_level" value="bronze_membership">
+                                Bronze Membership
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="membership_level" value="silver_membership">
+                                Silver Membership
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="membership_level" value="gold_membership">
+                                Gold Membership
+                            </label>
+                        </div>
+
+                        <label>
+                            Business Description
+                            <textarea name="description" rows="4" title="Describe your business"></textarea>
+                        </label>
+
+                        <input type="hidden" id="timestamp" name="timestamp" value="">
+
+                        <input type="submit" value="Submit Application" class="submit-btn">
+                    </form>
+                </section>
+
+                <section class="benefits-section">
+                    <h3>Membership Tiers</h3>
+                    <div class="membership-cards">
+                        <div class="mem-card np-card fade-in">
+                            <h4>NP Membership</h4>
+                            <p>For Non-Profit Organizations</p>
+                            <button class="modal-btn" data-modal="modal-np">View Benefits</button>
+                        </div>
+
+                        <div class="mem-card bronze-card fade-in">
+                            <h4>Bronze Membership</h4>
+                            <p>Entry Level Business</p>
+                            <button class="modal-btn" data-modal="modal-bronze">View Benefits</button>
+                        </div>
+
+                        <div class="mem-card silver-card fade-in">
+                            <h4>Silver Membership</h4>
+                            <p>Established Business</p>
+                            <button class="modal-btn" data-modal="modal-silver">View Benefits</button>
+                        </div>
+
+                        <div class="mem-card gold-card fade-in">
+                            <h4>Gold Membership</h4>
+                            <p>Premium Partnership</p>
+                            <button class="modal-btn" data-modal="modal-gold">View Benefits</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <dialog id="modal-np" class="modal">
+                <div class="modal-content">
+                    <button class="close-modal" aria-label="Close modal">❌</button>
+                    <h3>Non-Profit Membership</h3>
+                    <p>Designed for charities and non-profit organizations.</p>
+                    <ul>
+                        <li>Free of charge</li>
+                        <li>Basic directory listing</li>
+                        <li>Access to community events</li>
+                    </ul>
+                </div>
+            </dialog>
+
+            <dialog id="modal-bronze" class="modal">
+                <div class="modal-content">
+                    <button class="close-modal" aria-label="Close modal">❌</button>
+                    <h3>Bronze Membership</h3>
+                    <p>Perfect for small businesses starting out.</p>
+                    <ul>
+                        <li>Directory Listing</li>
+                        <li>Monthly Newsletter</li>
+                        <li>Networking Event Access</li>
+                        <li>5% Discount on Training</li>
+                    </ul>
+                </div>
+            </dialog>
+
+            <dialog id="modal-silver" class="modal">
+                <div class="modal-content">
+                    <button class="close-modal" aria-label="Close modal">❌</button>
+                    <h3>Silver Membership</h3>
+                    <p>For growing businesses seeking more exposure.</p>
+                    <ul>
+                        <li>All Bronze Benefits</li>
+                        <li>Enhanced Directory Listing (Logo)</li>
+                        <li>Spotlight Opportunity on Home Page</li>
+                        <li>15% Discount on Training</li>
+                    </ul>
+                </div>
+            </dialog>
+
+            <dialog id="modal-gold" class="modal">
+                <div class="modal-content">
+                    <button class="close-modal" aria-label="Close modal">❌</button>
+                    <h3>Gold Membership</h3>
+                    <p>Maximum exposure and premium benefits.</p>
+                    <ul>
+                        <li>All Silver Benefits</li>
+                        <li>Premium Directory Placement</li>
+                        <li>Banner Ads on Website</li>
+                        <li>4 Free Training Tickets</li>
+                        <li>VIP Event Access</li>
+                    </ul>
+                </div>
+            </dialog>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/chamber-logo.png" alt="Chamber Logo" width="40" height="40">
+                        <h3>Johannesburg Chamber of Commerce</h3>
+                    </div>
+                    <p class="address">123 Katherine Street<br>Sandton, Johannesburg, 2090</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p><i class="fas fa-phone"></i> +27 12 345 6789</p>
+                    <p><i class="fas fa-envelope"></i> info@jhbchamber.org.za</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; <span id="currentyear"></span> Johannesburg Chamber of Commerce | Lewis Karume</p>
+                </div>
+                <div class="last-modified">
+                    <p>Last Modified: <span id="lastModified"></span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
