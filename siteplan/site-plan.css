@@ -1,0 +1,104 @@
+/* General Imports and Reset */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    /* Secondary Color for main text */
+    color: #455A64; 
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    /* Primary Color for high contrast */
+    color: #1B5E20; 
+}
+
+/* Header Styling */
+header {
+    /* Primary Color background */
+    background-color: #1B5E20;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+header h1, header h2, header p {
+    color: white;
+    margin: 5px 0;
+}
+
+/* Main Layout */
+main {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.section {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+/* Color Palette Display Styling */
+.color-palette {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+.color-swatch {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Primary: Deep Forest Green */
+.primary { 
+    background-color: #1B5E20; 
+}
+
+/* Secondary: Blue Grey */
+.secondary { 
+    background-color: #455A64; 
+}
+
+/* Accent: Deep Red */
+.accent { 
+    background-color: #B71C1C; 
+}
+
+/* Wireframe Images styling */
+.wireframes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-around;
+}
+.wf-img {
+    border: 3px dashed #455A64;
+    padding: 10px;
+    max-width: 100%;
+    width: 350px;
+    height: auto;
+    display: block;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
