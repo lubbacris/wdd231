@@ -931,3 +931,101 @@ dialog::backdrop {
     border-bottom: 1px dashed #cbd5e0;
     padding-bottom: 0.25rem;
 }
+
+/* DISCOVER PAGE STYLES */
+
+/* Visitor Message */
+.visit-message {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+}
+
+/* Places Grid - Mobile Default */
+.places-grid {
+    display: grid;
+    gap: 2rem;
+    /* Grid Template Areas */
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+}
+
+.place-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+/* Assigning cards to grid areas */
+.place-card:nth-child(1) { grid-area: card1; }
+.place-card:nth-child(2) { grid-area: card2; }
+.place-card:nth-child(3) { grid-area: card3; }
+.place-card:nth-child(4) { grid-area: card4; }
+.place-card:nth-child(5) { grid-area: card5; }
+.place-card:nth-child(6) { grid-area: card6; }
+.place-card:nth-child(7) { grid-area: card7; }
+.place-card:nth-child(8) { grid-area: card8; }
+
+.place-card h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.place-card figure {
+    margin: 0 0 1rem 0;
+    overflow: hidden; /* Needed for hover effect later */
+    border-radius: 4px;
+}
+
+.place-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Transition for hover effect */
+    transition: transform 0.5s ease;
+}
+
+.place-card address {
+    font-style: normal;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.place-card p {
+    margin-bottom: 1.5rem;
+}
+
+.place-card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.place-card button:hover {
+    background-color: var(--secondary-color);
+}

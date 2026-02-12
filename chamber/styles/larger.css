@@ -183,3 +183,52 @@
         gap: 1.5rem;
     }
 }
+
+/* DISCOVER PAGE MEDIA QUERIES */
+
+/* Medium Screens (Tablet) - 2 Columns */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .places-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+        gap: 1.5rem;
+    }
+}
+
+/* Large Screens - 3 Columns (Varied Layout) */
+@media (min-width: 1025px) {
+    .places-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-areas: 
+            "card1 card1 card2 card2"
+            "card3 card4 card5 card6"
+            "card7 card7 card8 card8";
+        gap: 2rem;
+    }
+
+    /* Make span cards wider in layout */
+    .place-card img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    [cite_start]/* Hover Effect */
+    .place-card figure:hover img {
+        transform: scale(1.1);
+        filter: brightness(0.8);
+    }
+    
+    .place-card figure {
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+        transition: box-shadow 0.3s ease;
+    }
+    
+    .place-card figure:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+}
