@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Financial Dashboard - Track your expenses and income so that you can control and monitor your spending whilst also setting limits.">
+    <meta name="author" content="Your Name">
+    <title>Dashboard | FinanceTracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Finance<span>Tracker</span></div>
+        <button class="hamburger" aria-label="Open Menu">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="budget.html">Budget</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-grid">
+        <section class="summary-section">
+            <div class="summary-card">
+                <h3>Total Balance</h3>
+                <p id="total-balance">R 0.00</p>
+            </div>
+            <div class="summary-card">
+                <h3>Income</h3>
+                <p id="total-income" style="color: var(--success)">R 0.00</p>
+            </div>
+            <div class="summary-card">
+                <h3>Expenses</h3>
+                <p id="total-expenses" style="color: var(--danger)">R 0.00</p>
+            </div>
+        </section>
+
+        <section class="transactions-section">
+            <div class="card">
+                <div class="list-header">
+                    <h2>Recent Activity</h2>
+                    <input type="text" id="searchTransactions" class="search-bar" placeholder="Search by name...">
+                    <button id="addTransactionBtn" class="btn">+ Add New</button>
+                </div>
+                <div id="transaction-list">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <div class="card">
+                <h2>Spending Breakdown</h2>
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="transactionModal">
+        <div class="modal-header">
+            <h2>Add New Transaction</h2>
+            <button id="closeModalBtn" class="close-icon" aria-label="Close">&times;</button>
+        </div>
+        
+        <form id="transactionForm">
+            <div class="form-group">
+                <label for="t-desc">Description</label>
+                <input type="text" id="t-desc" name="description" placeholder="e.g. Woolworths Groceries" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="t-amount">Amount (R)</label>
+                    <input type="number" id="t-amount" name="amount" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="t-date">Date</label>
+                    <input type="date" id="t-date" name="date" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="t-category">Category</label>
+                    <select id="t-category" name="category" required>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Income">Income / Salary</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="t-type">Type</label>
+                    <select id="t-type" name="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-text" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn">Save Transaction</button>
+            </div>
+        </form>
+    </dialog>
+
+    <footer>
+        <p>&copy; 2026 Finance Tracker | Lewis Karume | BYU</p>
+        <p><span id="lastModified"></span></p>
+    </footer>
+</body>
+</html>

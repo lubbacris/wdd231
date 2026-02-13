@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Budget Planner">
+    <meta name="author" content="Your Name">
+    <title>Budget | FinanceTracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/budget.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Finance<span>Tracker</span></div>
+        <button class="hamburger" aria-label="Menu">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="budget.html" class="active">Budget</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="max-width: 600px;">
+        <div class="card">
+            <h1>Budget Settings</h1>
+            <p style="margin-bottom: 2rem; color: var(--text-muted)">Manage your monthly spending limits.</p>
+
+            <label for="monthlyLimit" style="display:block; margin-bottom:0.5rem; font-weight:700; color:var(--primary)">Monthly Limit (ZAR)</label>
+            <input type="number" id="monthlyLimit" placeholder="e.g. 5000" style="width:100%; padding:0.8rem; border:2px solid #cbd5e1; border-radius:8px; margin-bottom:1rem;">
+            
+            <button id="saveBudgetBtn" class="btn" style="width:100%">Save Preference</button>
+            <p id="saveMessage" style="margin-top:1rem; font-weight:600; text-align:center;"></p>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h2>Add Custom Category</h2>
+            <p style="margin-bottom:1rem; color:var(--text-muted);">Create new categories for your dashboard.</p>
+            <form action="record.html" method="GET">
+                <input type="text" name="category" required placeholder="Category Name" style="width:100%; padding:0.8rem; border:2px solid #cbd5e1; border-radius:8px; margin-bottom:1rem;">
+                <button type="submit" class="btn" style="background: var(--secondary); width:100%;">Create Category</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Finance Tracker | Lewis Karume | BYU</p>
+        <p><span id="lastModified"></span></p>
+    </footer>
+</body>
+</html>

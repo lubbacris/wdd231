@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Finance<span>Tracker</span></div>
+    </header>
+    <main style="text-align:center; padding-top:4rem;">
+        <div class="card" style="display:inline-block; text-align:left; max-width:400px;">
+            <h1 style="color:var(--success)">Success!</h1>
+            <p>New category added.</p>
+            <hr style="margin:1rem 0; border:0; border-top:1px solid #eee;">
+            <p id="output-category" style="font-weight:bold; font-size:1.2rem; color:var(--primary)"></p>
+            <br>
+            <a href="budget.html" class="btn">Back to Budget</a>
+        </div>
+    </main>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('output-category').textContent = `Category: ${params.get('category')}`;
+    </script>
+    <footer>
+        <p>&copy; 2026 Finance Tracker | Lewis Karume | BYU</p>
+        <p><span id="lastModified"></span></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,243 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap');
+
+:root {
+    --primary: #0f172a;
+    --secondary: #334155;
+    --accent: #1d4ed8;
+    --accent-hover: #1e40af;
+    --success: #15803d;
+    --danger: #b91c1c;
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #020617;
+    --text-muted: #475569;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 12px;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, .logo { font-family: 'Poppins', sans-serif; color: var(--primary); }
+a { text-decoration: none; transition: 0.2s; }
+
+/* Header and Navigation */
+header {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo { font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: -0.5px; }
+.logo span { color: #4ade80; }
+
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav a { color: #cbd5e1; font-weight: 500; }
+nav a:hover, nav a.active { color: white; border-bottom: 2px solid #4ade80; }
+
+/* HAMBURGER */
+.hamburger { display: none; background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--primary);
+        padding: 1rem;
+        gap: 1rem;
+        text-align: center;
+    }
+    nav.open ul { display: flex; }
+}
+
+/* Main Layout */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(29, 78, 216, 0.3);
+    transition: background-color 0.2s, transform 0.2s;
+}
+.btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+/* Cards */
+.card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto 1fr;
+    }
+    .summary-section { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .transactions-section { grid-column: 1 / 2; }
+    .chart-section { grid-column: 2 / 3; }
+}
+
+/* Summary Cards */
+.summary-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-top: 4px solid var(--primary);
+}
+.summary-card h3 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.summary-card p { font-size: 2rem; font-weight: 700; margin-top: 0.5rem; color: var(--primary); }
+
+/* Transaction List */
+.list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px; }
+.search-bar {
+    padding: 0.5rem 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    border-left: 6px solid #94a3b8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.transaction-item.income { border-left-color: var(--success); }
+.transaction-item.expense { border-left-color: var(--danger); }
+
+.t-details h4 { font-size: 1rem; margin-bottom: 0.2rem; color: var(--text-main); }
+.t-details small { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+.t-amount { font-weight: 700; font-size: 1.1rem; }
+
+/* Modal Styles */
+dialog {
+    border: none;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    color: var(--text-main);
+}
+dialog::backdrop { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(2px); }
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 1rem;
+}
+
+.close-icon {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+.close-icon:hover { color: var(--danger); }
+
+.form-group { margin-bottom: 1.2rem; text-align: left; }
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8fafc;
+}
+.form-group input:focus { outline: none; border-color: var(--accent); background-color: white; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary);
+    color: white;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+footer a { color: #4ade80; text-decoration: underline; }
